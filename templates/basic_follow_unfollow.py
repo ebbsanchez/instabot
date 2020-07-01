@@ -39,28 +39,28 @@ with smart_run(session):
     """ Massive Follow of users followers (I suggest to follow not less than
     3500/4000 users for better results)...
     """
-    session.follow_user_followers(target_list, amount=100,randomize=False, interact=False)
+    session.follow_user_followers(target_list, amount=30,randomize=False, interact=False)
 
     """ First step of Unfollow action - Unfollow not follower users...
     """
-    session.unfollow_users(amount=500, InstapyFollowed=(True, "nonfollowers"),
+    session.unfollow_users(amount=500, nonfollowers=True,
                            style="FIFO",
                            unfollow_after=12 * 60 * 60, sleep_delay=601)
 
     """ Second step of Massive Follow...
     """
-    session.follow_user_followers(target_list, amount=800,
+    session.follow_user_followers(target_list, amount=30,
                                   randomize=False, interact=False)
 
     """ Second step of Unfollow action - Unfollow not follower users...
     """
-    session.unfollow_users(amount=500, InstapyFollowed=(True, "nonfollowers"),
+    session.unfollow_users(amount=500, nonfollowers=True,
                            style="FIFO",
                            unfollow_after=12 * 60 * 60, sleep_delay=601)
 
     """ Clean all followed user - Unfollow all users followed by InstaPy...
     """
-    session.unfollow_users(amount=500, InstapyFollowed=(True, "all"),
+    session.unfollow_users(amount=500, instapy_followed_param='all',
                            style="FIFO", unfollow_after=24 * 60 * 60,
                            sleep_delay=601)
 

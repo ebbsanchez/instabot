@@ -43,7 +43,7 @@ with smart_run(session):
 
     """ First step of Unfollow action - Unfollow not follower users...
     """
-    session.unfollow_users(amount=500, nonfollowers=True,
+    session.unfollow_users(amount=500, nonFollowers=True,
                            style="FIFO",
                            unfollow_after=12 * 60 * 60, sleep_delay=601)
 
@@ -54,7 +54,7 @@ with smart_run(session):
 
     """ Second step of Unfollow action - Unfollow not follower users...
     """
-    session.unfollow_users(amount=500, nonfollowers=True,
+    session.unfollow_users(amount=500, nonFollowers=True,
                            style="FIFO",
                            unfollow_after=12 * 60 * 60, sleep_delay=601)
 

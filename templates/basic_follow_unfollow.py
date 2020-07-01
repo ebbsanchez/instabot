@@ -1,6 +1,6 @@
 from instapy import InstaPy
 from instapy import smart_run
-import os
+import os, random
 # login credentials
 
 insta_username = os.getenv("IG_USER")  # <- enter username here
@@ -20,7 +20,17 @@ with open('users.txt', 'r') as f:
 assert len(dont_include_list) > 250
 
 # setting target
-target_list = ['smarfilter.tw', 'work.as.life', 'nonsdesign.pw']
+target_list = ['smarfilter.tw',
+               'work.as.life',
+               'nonsdesign.pw',
+               'y.chieh___l',
+               'clementtang',
+               'ninjafilter',
+               't.e.s.s.s.y',
+               'weng.minci',
+               'sparkarmemes']
+
+sample_target = random.sample(target_list,3)
 
 with smart_run(session):
     """ Activity flow """
@@ -28,8 +38,8 @@ with smart_run(session):
     session.set_relationship_bounds(enabled=True,
                                     delimit_by_numbers=True,
                                     max_followers=4590,
-                                    min_followers=45,
-                                    min_following=77)
+                                    min_followers=200,
+                                    min_following=200)
 
     session.set_dont_include(dont_include_list)
     session.set_dont_like(["pizza", "#store"])
@@ -39,7 +49,7 @@ with smart_run(session):
     """ Massive Follow of users followers (I suggest to follow not less than
     3500/4000 users for better results)...
     """
-    session.follow_user_followers(target_list, amount=30,randomize=False, interact=False)
+    session.follow_user_followers(sample_target, amount=100,randomize=True, interact=False)
 
     """ First step of Unfollow action - Unfollow not follower users...
     """
@@ -49,8 +59,8 @@ with smart_run(session):
 
     """ Second step of Massive Follow...
     """
-    session.follow_user_followers(target_list, amount=30,
-                                  randomize=False, interact=False)
+    session.follow_user_followers(sample_target, amount=100,
+                                  randomize=True, interact=False)
 
     """ Second step of Unfollow action - Unfollow not follower users...
     """
@@ -77,6 +87,6 @@ with smart_run(session):
                       ':raised_hands: Yes!',
                       'I can feel your passion @{} :muscle:']
 
-    session.set_do_comment(enabled=True, percentage=95)
-    session.set_comments(photo_comments, media='Photo')
-    session.join_pods(topic='food', engagement_mode='no_comments')
+    # session.set_do_comment(enabled=True, percentage=95)
+    # session.set_comments(photo_comments, media='Photo')
+    # session.join_pods(topic='food', engagement_mode='no_comments')

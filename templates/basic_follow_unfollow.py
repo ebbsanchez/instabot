@@ -49,7 +49,7 @@ with smart_run(session):
     """ Massive Follow of users followers (I suggest to follow not less than
     3500/4000 users for better results)...
     """
-    session.follow_user_followers(sample_target, amount=100,randomize=True, interact=False)
+    session.follow_user_followers(sample_target, amount=50,randomize=True, interact=False)
 
     """ First step of Unfollow action - Unfollow not follower users...
     """
@@ -59,7 +59,7 @@ with smart_run(session):
 
     """ Second step of Massive Follow...
     """
-    session.follow_user_followers(sample_target, amount=100,
+    session.follow_user_followers(sample_target, amount=50,
                                   randomize=True, interact=False)
 
     """ Second step of Unfollow action - Unfollow not follower users...
